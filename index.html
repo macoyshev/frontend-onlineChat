@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>OnlineChat</title>
+</head>
+<body>
+   <button id="button">click me</button>
+   <script>
+        const url = "http://localhost:8080/api/users"
+        const button = document.getElementById("button")
+
+        button.addEventListener("click", async function() {
+            const response = await fetch(url, {
+               method: "GET",
+               mode: "cors",
+               cache: "no-cache",
+               headers: {
+                  "Content-Type":"application/json"
+               }
+            }).then(res => res.json())
+            .then(data => console.log(data))
+
+        })
+   </script>
+</body>
+</html>
